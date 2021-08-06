@@ -20,8 +20,6 @@
 '
 ```
 
-
-# Config
 Please refer to instructions in the README if you want to replicate and tweak accordingly.
 
 ## Storing and Re-storing dotfiles
@@ -29,7 +27,7 @@ Please refer to instructions in the README if you want to replicate and tweak ac
 The dotfiles are stored in a git bare repository. There is no need to maintain symlinks, copy/paste, or complicated dotfile manager.
 To replicate the setup, use the following commands:
 
-```sh
+```bash
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 git clone --bare <git-repo-url> $HOME/.cfg
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -45,7 +43,7 @@ Refer to [The best way to store your dotfiles: A bare Git repository](https://ww
 ### For Mac
 Update your system to latest OS, then head over to App Store and install xcode.
 Once completed, execute the following script:
-```sh
+```bash
 ~/Scripts/mac-first-time.sh
 ```
 ### For Arch:
@@ -57,8 +55,37 @@ TODO:
 ## Installing Pre-requisites/important Cli
 TODO:
 
-## Installing Zsh
+
+## Alacritty - terminal
+TODO:
+
+## Zsh - bash replacement
 Execute:
-```sh 
+```bash 
 ~/Scripts/zsh-setup.sh
 ```
+
+## Vim -
+Execute:
+
+## Tmux 
+Execute:
+
+## Visual Studio Code
+Execute:
+```bash
+~/Scriptsvscode-setup.sh restore
+```
+
+# Environment setup
+
+## CPlusPlus
+
+## Golang
+
+## JavaScript/TypeScript
+
+## Rust
+
+## Python
+
