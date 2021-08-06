@@ -121,6 +121,20 @@ HISTFILE=$HOME/.zhistory
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+# important Alias
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-alias tms="tmux new-session -A -s "
+# Aliases
+if [[ -s "$HOME/.aliases" ]]; then
+  # shellcheck source=/dev/null
+  source "$HOME/.aliases"
+fi
+
+# Environments
+if [[ -d "$HOME/.env.d" ]] ; then
+  # If you want to source all files
+  # for f in $HOME/.env.d/*.env; do
+    # source "$f"
+  # done
+  source "$HOME/.env.d/go.env"
+fi
