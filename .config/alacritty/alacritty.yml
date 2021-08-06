@@ -22,7 +22,7 @@ font:
     # Font name
     family: FiraCode Nerd Font
     # Font face
-    style: Retina
+    style: Regular
 
   # Bold font face
   bold:
@@ -101,11 +101,14 @@ cursor:
 #
 # You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
 # Entries in shell.args are passed unmodified as arguments to the shell.
-#shell:
-# program: /usr/bin/zsh
-# args:
-#  - -c
-#  -  "tmux -u new-session -A -s main"
+
+# shell:
+  # program: /usr/local/bin/tmux # <- set this to the path of your tmux installation
+  # args:
+    # - new-session
+    # - -A
+    # - -s
+    # - main
 
 # Colors (Gruvbox dark)
 colors:

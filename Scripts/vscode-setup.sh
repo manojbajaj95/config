@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Dump all code extensions with
+# code --list-extensions > $HOME/Scripts/code-extensions.lst
+
+# Install extensions via:
+# code --install-extension $extension
+
+# Manage setting json
+
+# To backup
+# mv ~/Library/Application\ Support/Code/User/settings.json ~/.vscode/
+# mv ~/Library/Application\ Support/Code/User/keybindings.json ~/.vscode/
+# mv ~/Library/Application\ Support/Code/User/snippets/ ~/.vscode/
+
+# Create symlink
+# ln -s $HOME/.vsode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+# ln -s $HOME/.vsode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+# ln -s $HOME/.vsode/snippets/ $HOME/Library/Application\ Support/Code/User
+
+# if not enough args displayed, display an error and die
+[ $# -eq 0 ] && echo "Usage: $0 <backup/restore>" && exit 1
+
+if [ "$1" == "backup" ];then
+  code --list-extensions > $HOME/Scripts/code-extensions.lst
+  mv ~/Library/Application\ Support/Code/User/settings.json ~/.vscode/
+  mv ~/Library/Application\ Support/Code/User/keybindings.json ~/.vscode/
+  mv ~/Library/Application\ Support/Code/User/snippets/ ~/.vscode/
+elif [ "$1" == "restore" ];then
+  # code --install-extension $extension
+  ln -s $HOME/.vsode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+  ln -s $HOME/.vsode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+  ln -s $HOME/.vsode/snippets/ $HOME/Library/Application\ Support/Code/User
+else
+  echo "Incorrect parameter"
+fi
+
