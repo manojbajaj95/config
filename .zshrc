@@ -121,5 +121,6 @@ HISTFILE=$HOME/.zhistory
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+alias tms="tmux new-session -A -s "
