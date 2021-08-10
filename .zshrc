@@ -130,6 +130,13 @@ if [[ -s "$HOME/.aliases" ]]; then
   source "$HOME/.aliases"
 fi
 
+# Add custom aliases
+# This is not added in the git repository
+if [[ -s "$HOME/.caliases" ]]; then
+  # shellcheck source=/dev/null
+  source "$HOME/.caliases"
+fi
+
 # Environments
 if [[ -d "$HOME/.env.d" ]] ; then
   # If you want to source all files
