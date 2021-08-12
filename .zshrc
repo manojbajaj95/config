@@ -144,4 +144,5 @@ if [[ -d "$HOME/.env.d" ]] ; then
     # source "$f"
   # done
   source "$HOME/.env.d/go.env"
+  source "$HOME/.env.d/python.env"
 fi
