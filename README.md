@@ -29,7 +29,7 @@ To replicate the setup, use the following commands:
 
 ```bash
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-git clone --bare <git-repo-url> $HOME/.cfg
+git clone --bare https://github.com/manojbajaj95/config.git $HOME/.cfg
 config config --local status.showUntrackedFiles no
 config checkout
 ```
