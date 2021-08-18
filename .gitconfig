@@ -36,7 +36,5 @@
 	autosetuprebase = always
 [push]
 	default = tracking
-[pull]
-	rebase = true
 [web]
 	browser = open
