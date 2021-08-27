@@ -79,7 +79,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions common-aliases history-substring-search)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions common-aliases history-substring-search extract)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,6 +112,8 @@ source $ZSH/oh-my-zsh.sh
 #
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source $HOME/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Bind up-down keys for cycling through history
 bindkey '^[[A' history-substring-search-up

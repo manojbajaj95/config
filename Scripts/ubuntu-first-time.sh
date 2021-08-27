@@ -1,5 +1,5 @@
 #sudo apt install -y update-manager-core
-#sudo apt-get update && sudo apt-get -y upgrade
+sudo apt-get update && sudo apt-get -y upgrade
 #sudo do-release-upgrade
 
 
@@ -9,4 +9,4 @@ echo "Installing Pakages - $packages"
 
 sudo apt-get install -y $packages
 
-#sudo apt autoremove
+sudo apt autoremove
