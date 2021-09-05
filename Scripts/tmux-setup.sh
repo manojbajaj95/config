@@ -6,7 +6,7 @@
 # Backup existing tmux config
 # mv $HOME/.tmux.conf $HOME/.tmux.conf.bkp
 git clone https://github.com/gpakosz/.tmux.git $HOME/.tmux
-# ln -s -f $HOME/.tmux/.tmux.conf $HOME/.tmux.conf
+ln -s -f $HOME/.tmux/.tmux.conf $HOME/.tmux.conf
 # Skip following if it already exits
 # cp $HOME/.tmux/.tmux.conf.local $HOME
 

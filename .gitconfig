@@ -35,6 +35,8 @@
 [branch]
 	autosetuprebase = always
 [push]
-	default = tracking
+	default = simple
 [web]
 	browser = open
+[credential]
+	helper = cache --timeout=25000

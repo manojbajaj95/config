@@ -6,3 +6,5 @@ wget
 curl
 htop
 fzf
+vim
+zsh

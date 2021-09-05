@@ -9,7 +9,7 @@ window:
   dynamic_padding: true
 
   # Startup Mode (changes require restart)
-  startup_mode: Fullscreen
+  # startup_mode: Fullscreen
 
 # Sample Font configuration for font: Monoid.
 # Feel free to use different font configuration family & face for each sections
