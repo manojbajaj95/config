@@ -1,2 +1,3 @@
 alias tms="tmux new-session -A -s "
 alias vi=vim
+alias swapesc="setxkbmap -option caps:escape"

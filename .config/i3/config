@@ -6,7 +6,8 @@
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:FiraCode Nerd Font Regular 18, Noto Sans Regular 18, FontAwesome 14
+# font pango:JetBrainsMono Nerd Font 10,Fira Code Nerd Font 28,FiraCode Nerd Font Regular 18, Noto Sans Regular 18, FontAwesome 10
+font pango:JetBrainsMono Nerd Font 10
 
 # set the mod key to the winkey:
 set $mod Mod4
@@ -37,9 +38,48 @@ new_window pixel 1
 # hide_edge_borders both
 
 # Set inner/outer gaps
-gaps inner 4
-gaps outer 4
+gaps inner 0
+gaps outer 0
 
+
+# Gaps support
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+	bindsym o      mode "$mode_gaps_outer"
+	bindsym i      mode "$mode_gaps_inner"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+	bindsym plus  gaps inner current plus 5
+	bindsym minus gaps inner current minus 5
+	bindsym 0     gaps inner current set 0
+
+	bindsym Shift+plus  gaps inner all plus 5
+	bindsym Shift+minus gaps inner all minus 5
+	bindsym Shift+0     gaps inner all set 0
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_outer" {
+	bindsym plus  gaps outer current plus 5
+	bindsym minus gaps outer current minus 5
+	bindsym 0     gaps outer current set 0
+
+	bindsym Shift+plus  gaps outer all plus 5
+	bindsym Shift+minus gaps outer all minus 5
+	bindsym Shift+0     gaps outer all set 0
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -54,7 +94,7 @@ bindsym $mod+6    workspace  $ws6
 bindsym $mod+7    workspace  $ws7
 bindsym $mod+8    workspace  $ws8
 bindsym $mod+9    workspace  $ws9
-bindsym $mod+0    workspace  $ws10
+bindsym $mod+0    workspace  $ws0
 
 # switch to workspace with numpad keys
 bindcode $mod+87 workspace 1
@@ -78,7 +118,7 @@ bindcode $mod+Mod2+85 workspace $ws6
 bindcode $mod+Mod2+79 workspace $ws7
 bindcode $mod+Mod2+80 workspace $ws8
 bindcode $mod+Mod2+81 workspace $ws9
-bindcode $mod+Mod2+90 workspace $ws10
+bindcode $mod+Mod2+90 workspace $ws0
 
 
 # move focused container to workspace
@@ -91,7 +131,7 @@ bindsym $mod+Shift+6    move container to workspace  $ws6
 bindsym $mod+Shift+7    move container to workspace  $ws7
 bindsym $mod+Shift+8    move container to workspace  $ws8
 bindsym $mod+Shift+9    move container to workspace  $ws9
-bindsym $mod+Shift+0    move container to workspace  $ws10
+bindsym $mod+Shift+0    move container to workspace  $ws0
 
 
 # move focused container to workspace with numpad keys
@@ -104,7 +144,7 @@ bindcode $mod+Shift+Mod2+85 	move container to workspace  $ws6
 bindcode $mod+Shift+Mod2+79 	move container to workspace  $ws7
 bindcode $mod+Shift+Mod2+80 	move container to workspace  $ws8
 bindcode $mod+Shift+Mod2+81 	move container to workspace  $ws9
-bindcode $mod+Shift+Mod2+90 	move container to workspace  $ws10
+bindcode $mod+Shift+Mod2+90 	move container to workspace  $ws0
 
 # move focused container to workspace with numpad keys
 bindcode $mod+Shift+87 	 move container to workspace  $ws1
@@ -116,7 +156,14 @@ bindcode $mod+Shift+85 	 move container to workspace  $ws6
 bindcode $mod+Shift+79 	 move container to workspace  $ws7
 bindcode $mod+Shift+80 	 move container to workspace  $ws8
 bindcode $mod+Shift+81 	 move container to workspace  $ws9
-bindcode $mod+Shift+90 	 move container to workspace  $ws10
+bindcode $mod+Shift+90 	 move container to workspace  $ws0
+
+# Move between monitors
+bindsym $mod+Shift+u move workspace to output left
+bindsym $mod+Shift+i move workspace to output up
+bindsym $mod+Shift+o move workspace to output down
+bindsym $mod+Shift+p move workspace to output right
+
 
 # resize window (you can also use the mouse for that):
 mode "resize" {
@@ -130,15 +177,16 @@ mode "resize" {
   bindsym k resize shrink height 10 px or 10 ppt
   bindsym l resize grow width 10 px or 10 ppt
 
-# same bindings, but for the arrow keys
+	# same bindings, but for the arrow keys
   bindsym Left resize shrink width 10 px or 10 ppt
   bindsym Down resize grow height 10 px or 10 ppt
   bindsym Up resize shrink height 10 px or 10 ppt
   bindsym Right resize grow width 10 px or 10 ppt
 
-# back to normal: Enter or Escape
+	# back to normal: Enter or Escape
   bindsym Return mode "default"
   bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -200,15 +248,14 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym $mod+h split h
-#bindsym $mod+- split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
-#bindsym $mod+\ split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+bindsym F11 fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -263,7 +310,8 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 ## App shortcuts
 bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+n exec /usr/bin/thunar
-bindsym Print exec "scrot ~/%Y-%m-%d-%T-screenshot.png"
+bindsym --release Print exec --no-startup-id scrot '%Y%m%d-%T.png' -e 'mv $f ~/Pictures/screenshots/'
+bindsym --release Shift+Print exec --no-startup-id scrot --select '%Y%m%d-%T.png' -e 'mv $f ~/Pictures/screenshots/'
 
 ##########################################
 # configuration for workspace behaviour: #
@@ -271,47 +319,171 @@ bindsym Print exec "scrot ~/%Y-%m-%d-%T-screenshot.png"
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+
+# workspace names / font-awesome
+set $ws1 "1 "
+set $ws2 "2 "
+set $ws3 "3 "
+set $ws4 "4 "
+set $ws5 "5 "
+set $ws6 "6 "
+set $ws7 "7 "
+set $ws8 "8 "
+set $ws9 "9 "
+set $ws0 "0 "
+
+
+##==================================================##
+## *** Workspace specific settings ***               ##
+###==================================================##
 
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays 
 # you can get from xrandr command
-#workspace $ws1 output VGA-0
-#workspace $ws2 output VGA-0
-#workspace $ws3 output HDMI-0
-#workspace $ws4 output HDMI-0
-#workspace $ws5 output HDMI-0
+#workspace $ws1 output DP-4
+#workspace $ws2 output DP-4
+#workspace $ws3 output DP-4
+#workspace $ws4 output DP-4
+#workspace $ws5 output DP-4
+#workspace $ws6 output HDMI-0
+#workspace $ws7 output HDMI-0
+#workspace $ws8 output HDMI-0
+#workspace $ws9 output HDMI-0
+#workspace $ws0 output HDMI-0
 
 # bind program to workspace and focus to them on startup:
-#assign [class="Xfce4-terminal"] $ws1
-#assign [class="(?i)firefox"] $ws2
-#assign [class="Thunar"] $ws3
-#assign [class="Thunderbird"] $ws4
-#assign [class="TelegramDesktop"] $ws5
+assign [class="(?i)firefox"] $ws1
 
+assign [class="Xfce4-terminal"] $ws2
+assign [class="alacritty"] $ws2
+
+assign [class="code-oss"] $ws3
+assign [class="Thunar"] $ws3
+
+assign [class="Thunderbird"] $ws4
+assign [class="Slack"] $ws4
+
+assign [class="TelegramDesktop"] $ws8
+assign [class="Franz"] $ws8
+assign [class="skypeforlinux"] $ws8
+assign [class="Skype"] $ws8
+
+assign [class="Google Play Music Desktop Player"] $ws9
+assign [class="*music.youtube.com*"] $ws9
 
 # automatic set focus new window if it opens on another workspace then the current:
-#for_window [class=Xfce4-terminal] focus
-#for_window [class=(?i)firefox] focus
-#for_window [class=Thunar] focus
-#for_window [class=Thunderbird] focus
-#for_window [class=TelegramDesktop] focus
+# for_window [class=(?i)firefox] focus
+
+# set floating (nontiling)for apps needing it
+for_window [class="Yad" instance="yad"] floating enable
+for_window [class="Galculator" instance="galculator"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="Clipgrab"] floating enable
+for_window [title="File Transfer*"] floating enable
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="Lightdm-gtk-greeter-settings"] floating enable
+for_window [class="lxappearance"] floating enable sticky enable border normal
+for_window [class="Manjaro-hello"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [title="MuseScore: Play Panel"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Oblogout"] fullscreen enable
+for_window [class="octopi"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="Simple-scan"] floating enable border normal
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="Thus"] floating enable border normal
+for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="(?i)virtualbox"] fullscreen enable
+for_window [class="Xfburn"] floating enable
+for_window [class="nm-connection-editor"] floating enable
+
+# Plasma Apps
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 20px, move down 20px
+no_focus [class="plasmashell" window_type="notification"]
+
+#set floating (nontiling) for special apps
+for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="qt5ct" instance="qt5ct"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+for_window [class="Pamac-manager"] floating enable
+
+
+##########################################
+# Save Restore workspace behaviour     : #
+##########################################
+
+set $i3_resurrect i3-resurrect
+
+# Save workspace mode.
+mode "save" {
+  bindsym 1 exec $i3_resurrect save -w $s1
+  bindsym 2 exec $i3_resurrect save -w $s2
+  bindsym 3 exec $i3_resurrect save -w $s3
+  bindsym 4 exec $i3_resurrect save -w $s4
+  bindsym 5 exec $i3_resurrect save -w $s5
+  bindsym 6 exec $i3_resurrect save -w $s6
+  bindsym 7 exec $i3_resurrect save -w $s7
+  bindsym 8 exec $i3_resurrect save -w $s8
+  bindsym 9 exec $i3_resurrect save -w $s9
+  bindsym 0 exec $i3_resurrect save -w $s0
+
+  # Back to normal: Enter, Escape, or s
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym s mode "default"
+  bindsym $mod+Shift+t mode "default"
+}
+
+bindsym $mod+Shift+t mode "save"
+
+# Restore workspace mode.
+mode "restore" {
+  bindsym 1 exec $i3_resurrect restore -w $ws1
+  bindsym 2 exec $i3_resurrect restore -w $ws2
+  bindsym 3 exec $i3_resurrect restore -w $ws3
+  bindsym 4 exec $i3_resurrect restore -w $ws4
+  bindsym 5 exec $i3_resurrect restore -w $ws5
+  bindsym 6 exec $i3_resurrect restore -w $ws6
+  bindsym 7 exec $i3_resurrect restore -w $ws7
+  bindsym 8 exec $i3_resurrect restore -w $ws8
+  bindsym 9 exec $i3_resurrect restore -w $ws9
+  bindsym 0 exec $i3_resurrect restore -w $ws0
+
+  # Back to normal: Enter, Escape, or n
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym n mode "default"
+  bindsym $mod+Shift+y mode "default"
+}
+
+bindsym $mod+Shift+y mode "restore"
+
 
 #############################################
 # autostart applications/services on login: #
 #############################################
 
-#get auth work with polkit-gnome
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# get auth work with polkit-gnome
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # dex execute .desktop files
 # keep in mind that it can cause issues 
@@ -330,7 +502,7 @@ exec --no-startup-id numlockx on
 exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # start blueberry app for managing bluetooth devices from tray:
-exec --no-startup-id blueberry-tray
+# exec --no-startup-id blueberry-tray
 
 #transparency 
 #exec --no-startup-id xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
@@ -351,21 +523,7 @@ exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 
 # Autostart apps as you like
 # exec --no-startup-id sleep 2 && xfce4-terminal
-# exec --no-startup-id sleep 7 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
-#exec --no-startup-id sleep 3 && thunar
-
-# set floating (nontiling)for apps needing it
-#for_window [class="Yad" instance="yad"] floating enable
-#for_window [class="Galculator" instance="galculator"] floating enable
-#for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
-
-#set floating (nontiling) for special apps
-#for_window [class="Xsane" instance="xsane"] floating enable
-#for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
-#for_window [class="qt5ct" instance="qt5ct"] floating enable
-#for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
-#for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
-#for_window [class="Pamac-manager"] floating enable
+# exec --no-startup-id sleep 3 && thunar
 
 ######################################
 # color settings for bar and windows #
@@ -390,7 +548,6 @@ client.focused		    $lightblue	$darkblue	$white		$purple		$mediumgrey
 client.unfocused	    $darkblue	$darkblue	$grey		$purple		$darkgrey
 client.focused_inactive	$darkblue	$darkblue	$grey		$purple		$black
 client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
-
 
 ############################################
 # bar settings (input comes from i3blocks) #
@@ -469,7 +626,10 @@ bindsym $mod+d exec rofi -modi drun -show drun \
                 
 bindsym F9 exec rofi -modi drun -show drun \
 		-config ~/.config/rofi/rofidmenu.rasi
-		
+
+
+## rofi bindings for Calculator
+bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort
 ## rofi bindings for window menu (two bindings F10/$mod+t)
 
 bindsym $mod+t exec rofi -show window \
