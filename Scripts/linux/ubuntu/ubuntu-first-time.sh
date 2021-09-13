@@ -1,7 +1,6 @@
 #sudo apt install -y update-manager-core
 sudo apt-get update && sudo apt-get -y upgrade
-#sudo do-release-upgrade
-
+sudo do-release-upgrade
 
 #install required packages
 packages=`cat $HOME/Scripts/packages.ubuntu.lst | tr "\n" " "`
