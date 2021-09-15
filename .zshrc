@@ -79,7 +79,8 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions common-aliases history-substring-search extract)
+export NVM_LAZY=1
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions common-aliases history-substring-search extract nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -147,4 +148,5 @@ if [[ -d "$HOME/.env.d" ]] ; then
   # done
   source "$HOME/.env.d/go.env"
   source "$HOME/.env.d/python.env"
+  source "$HOME/.env.d/emacs.env"
 fi
