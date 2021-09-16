@@ -70,6 +70,8 @@ This function should only modify configuration layer settings."
 
      pdf
      org
+
+     pandoc ;; To convert to-from for md/org
      )
 
 
