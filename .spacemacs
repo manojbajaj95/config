@@ -42,15 +42,18 @@ This function should only modify configuration layer settings."
      git
      ;; version-control
      ;; multiple-cursors
-     (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
+     ;; (shell :variables
+     ;;        shell-default-height 30
+     ;;        shell-default-position 'bottom)
+     imenu-list
 
      spell-checking
      syntax-checking
-     auto-completion
-     gtags
-
+     (auto-completion :variables
+                      ;; auto-completion-private-snippets-directory '~/Templates/snippets
+                      ;; auto-completion-complete-with-key-sequence (kbd "jk")
+                      )
+     ;; gtags
      lsp
      emacs-lisp
      json
@@ -65,13 +68,14 @@ This function should only modify configuration layer settings."
      ;; cmake
      python
      go
-     protobuf
+     ;; protobuf
      docker
-
      pdf
      org
+     ;; pandoc
 
-     pandoc ;; To convert to-from for md/org
+     ;; osx
+     xclipboard
      )
 
 
@@ -567,7 +571,12 @@ dump.")
 This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
-before packages are loaded.")
+before packages are loaded."
+  (add-hook 'yas-minor-mode-hook (lambda ()
+                                   (yas-activate-extra-mode `fundamental-mode)))
+  (setq imenu-list-size 0.1)
+  (setq imenu-list-auto-resize nil)
+  )
 
 
 ;; Do not write anything past this comment. This is where Emacs will
