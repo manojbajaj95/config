@@ -1,3 +1,19 @@
+
 alias tms="tmux new-session -A -s "
 alias vi=vim
 alias swapesc="setxkbmap -option caps:escape"
+
+# For xclipboard history - required rofi-greenclip
+alias copyhist="greenclip print | sed '/^$/d' | fzf -e | xargs -r -d'\n' -I '{}' greenclip print '{}'"
+
+function swapProgram(){
+    if command -v $2 &> /dev/null
+    then
+        alias $1=$2
+    fi
+}
+
+swapProgram cat bat
+swapProgram ls exa
+swapProgram vi nvim
+swapProgram vim nvim

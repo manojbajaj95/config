@@ -1,2 +1,2 @@
 #!/bin/sh
-cp -r $HOME/Assets/fonts/* /usr/share/fonts
+sudo cp -r $HOME/Assets/fonts/* /usr/share/fonts
