@@ -308,7 +308,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec /usr/bin/firefox
+bindsym $mod+w exec /usr/bin/microsoft-edge-beta
 bindsym $mod+n exec /usr/bin/thunar
 bindsym --release Print exec --no-startup-id scrot '%Y%m%d-%T.png' -e 'mv $f ~/Pictures/screenshots/'
 bindsym --release Shift+Print exec --no-startup-id scrot --select '%Y%m%d-%T.png' -e 'mv $f ~/Pictures/screenshots/'
