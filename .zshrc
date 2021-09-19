@@ -80,7 +80,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 export NVM_LAZY=1
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions common-aliases history-substring-search extract nvm)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode common-aliases history-substring-search extract nvm)
 
 source $ZSH/oh-my-zsh.sh
 
