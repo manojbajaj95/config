@@ -119,6 +119,8 @@ source $ZSH/oh-my-zsh.sh
 # Bind up-down keys for cycling through history
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+bindkey '^K' history-substring-search-up
+bindkey '^J' history-substring-search-down
 HISTFILE=$HOME/.zhistory
 
 export VISUAL=vim
