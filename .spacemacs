@@ -49,10 +49,12 @@ This function should only modify configuration layer settings."
 
      spell-checking
      syntax-checking
-     (auto-completion :variables
-                      ;; auto-completion-private-snippets-directory '~/Templates/snippets
-                      ;; auto-completion-complete-with-key-sequence (kbd "jk")
-                      )
+     auto-completion
+     (treemacs :variables
+               ;; treemacs-use-git-mode 'deferred
+               treemacs-toggle-show-dotfiles nil
+               treemacs-hide-gitignored-files-mode t
+               )
      ;; gtags
      lsp
      emacs-lisp
@@ -576,6 +578,7 @@ before packages are loaded."
                                    (yas-activate-extra-mode `fundamental-mode)))
   (setq imenu-list-size 0.1)
   (setq imenu-list-auto-resize nil)
+  (setq treemacs-show-gitignored-files nil)
   )
 
 
