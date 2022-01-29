@@ -7,6 +7,7 @@
 window:
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
+  decorations: transparent
 
   # Startup Mode (changes require restart)
   # startup_mode: Fullscreen

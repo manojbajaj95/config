@@ -14,9 +14,9 @@
 # mv ~/Library/Application\ Support/Code/User/snippets/ ~/.vscode/
 
 # Create symlink
-# ln -s $HOME/.vsode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
-# ln -s $HOME/.vsode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
-# ln -s $HOME/.vsode/snippets/ $HOME/Library/Application\ Support/Code/User
+# ln -s $HOME/.vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+# ln -s $HOME/.vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+# ln -s $HOME/.vscode/snippets/ $HOME/Library/Application\ Support/Code/User
 
 # if not enough args displayed, display an error and die
 [ $# -eq 0 ] && echo "Usage: $0 <backup/restore>" && exit 1

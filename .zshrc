@@ -129,6 +129,12 @@ export EDITOR="$VISUAL"
 # important Alias
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# Standard paths required on mac os
+export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+# More paths for user binaries
+export PATH=$PATH:$HOME/bin
+
 # Aliases
 if [[ -s "$HOME/.aliases" ]]; then
   # shellcheck source=/dev/null
@@ -148,7 +154,11 @@ if [[ -d "$HOME/.env.d" ]] ; then
   # for f in $HOME/.env.d/*.env; do
     # source "$f"
   # done
-  source "$HOME/.env.d/go.env"
+  # source "$HOME/.env.d/go.env"
   source "$HOME/.env.d/python.env"
-  source "$HOME/.env.d/emacs.env"
+  source "$HOME/.env.d/node.env"
+  # source "$HOME/.env.d/rust.env"
+  # source "$HOME/.env.d/cpp.env"
+  source "$HOME/.env.d/flutter.env"
+  # source "$HOME/.env.d/emacs.env"
 fi

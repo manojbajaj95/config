@@ -1,4 +1,59 @@
 {
-    "workbench.colorTheme": "Default Dark+",
-    "editor.fontFamily": "'FiraCode Nerd Font Mono','FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace"
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "files.exclude": {
+        "**/.dart_tool": true,
+        "**/.next": true,
+        "**/.out": true,
+        "**/.pnp": true,
+        "**/.symlinks": true,
+        "**/build": true,
+        "**/node_modules": true,
+        "**/out": true,
+        "**/Pods": true,
+        "**/venv": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        ".build/**": true,
+        "out*/**": true,
+        "i18n/**": true,
+        "extensions/**/out/**": true,
+        "*.min.js": true
+    },
+    "editor.wordWrap": "wordWrapColumn",
+    "workbench.iconTheme": "vscode-icons",
+    "editor.guides.bracketPairs": true,
+    "editor.smoothScrolling": true,
+    "workbench.enableExperiments": false,
+    "workbench.tips.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            120
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false,
+        "editor.defaultFormatter": "Dart-Code.dart-code"
+    },
+    "vsicons.dontShowNewVersionMessage": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "editor.wordWrapColumn": 120,
+    "workbench.startupEditor": "none",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "dart.debugExternalPackageLibraries": false,
+    "dart.debugSdkLibraries": false,
+    "dart.lineLength": 120
 }

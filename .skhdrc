@@ -107,7 +107,7 @@
 
 
 # Begin Actual Config
-.load .skhdrc.yabai
+# .load "/Users/mbajaj/.skhdrc.yabai"
 
 # open terminal, blazingly fast compared to iTerm/Hyper
-cmd - return : /usr/local/bin/alacritty 
+cmd - return : /Applications/Alacritty.app/Contents/MacOS/Alacritty
