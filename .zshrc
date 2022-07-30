@@ -162,3 +162,6 @@ if [[ -d "$HOME/.env.d" ]] ; then
   source "$HOME/.env.d/flutter.env"
   # source "$HOME/.env.d/emacs.env"
 fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/mbajaj/src/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mbajaj/src/google-cloud-sdk/completion.zsh.inc'; fi

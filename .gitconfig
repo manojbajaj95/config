@@ -32,8 +32,6 @@
 	whitespace = trailing-space,space-before-tab
 [apply]
 	whitespace = fix
-[branch]
-	autosetuprebase = always
 [push]
 	default = simple
 [web]
