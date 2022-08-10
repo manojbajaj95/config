@@ -159,7 +159,7 @@ if [[ -d "$HOME/.env.d" ]] ; then
   source "$HOME/.env.d/node.env"
   # source "$HOME/.env.d/rust.env"
   # source "$HOME/.env.d/cpp.env"
-  source "$HOME/.env.d/flutter.env"
+  # source "$HOME/.env.d/flutter.env"
   # source "$HOME/.env.d/emacs.env"
 fi
 
