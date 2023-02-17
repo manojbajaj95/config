@@ -107,9 +107,16 @@ Check ~/.end.d/cpp.env
 Check ~/.end.d/go.env
 
 ## JavaScript/TypeScript
+Check ~/.end.d/go.env
+```bash
+load_node
+```
 
 ## Rust
 Check ~/.end.d/rust.env
+```
+load_rust
+```
 
 ## Python
 Check ~/.end.d/python.env
