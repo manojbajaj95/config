@@ -79,8 +79,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-export NVM_LAZY=1
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode common-aliases history-substring-search extract nvm)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode common-aliases history-substring-search extract )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -154,14 +153,18 @@ if [[ -d "$HOME/.env.d" ]] ; then
   # for f in $HOME/.env.d/*.env; do
     # source "$f"
   # done
-  # source "$HOME/.env.d/go.env"
+  source "$HOME/.env.d/go.env"
+  source "$HOME/.env.d/java.env"
   source "$HOME/.env.d/python.env"
   source "$HOME/.env.d/node.env"
-  # source "$HOME/.env.d/rust.env"
+  source "$HOME/.env.d/gcloud.env"
+  source "$HOME/.env.d/rust.env"
   # source "$HOME/.env.d/cpp.env"
   # source "$HOME/.env.d/flutter.env"
   # source "$HOME/.env.d/emacs.env"
 fi
+# export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/mbajaj/src/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mbajaj/src/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+

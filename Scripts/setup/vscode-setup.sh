@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Dump all code extensions with
-# code --list-extensions > $HOME/Scripts/code-extensions.lst
 
 # Install extensions via:
 # code --install-extension $extension
@@ -26,6 +25,7 @@ if [ "$1" == "backup" ];then
   mv ~/Library/Application\ Support/Code/User/settings.json ~/.vscode/
   mv ~/Library/Application\ Support/Code/User/keybindings.json ~/.vscode/
   mv ~/Library/Application\ Support/Code/User/snippets/ ~/.vscode/
+  code --list-extensions > ~/.vscode/code-extensions.lst
 elif [ "$1" == "restore" ];then
   # code --install-extension $extension
   ln -s $HOME/.vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json

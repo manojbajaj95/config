@@ -17,3 +17,4 @@ swapProgram cat bat
 swapProgram ls exa
 swapProgram vi nvim
 swapProgram vim nvim
+swapProgram npm pnpm

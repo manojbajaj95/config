@@ -1,37 +1,4 @@
 {
-  "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontLigatures": true,
-  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "files.exclude": {
-    "**/.dart_tool": true,
-    "**/.next": true,
-    "**/.out": true,
-    "**/.pnp": true,
-    "**/.symlinks": true,
-    "**/build": true,
-    "**/node_modules": true,
-    "**/out": true,
-    "**/Pods": true,
-    "**/venv": true
-  },
-  "search.exclude": {
-    "**/node_modules": true,
-    "**/bower_components": true,
-    ".build/**": true,
-    "out*/**": true,
-    "i18n/**": true,
-    "extensions/**/out/**": true,
-    "*.min.js": true
-  },
-  "editor.wordWrap": "wordWrapColumn",
-  "workbench.iconTheme": "vscode-icons",
-  "editor.guides.bracketPairs": true,
-  "editor.smoothScrolling": true,
-  "workbench.enableExperiments": false,
-  "workbench.tips.enabled": false,
-  "telemetry.telemetryLevel": "off",
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
@@ -43,23 +10,87 @@
     "editor.wordBasedSuggestions": false,
     "editor.defaultFormatter": "Dart-Code.dart-code"
   },
-  "vsicons.dontShowNewVersionMessage": true,
-  "git.autofetch": true,
-  "git.confirmSync": false,
-  "editor.wordWrapColumn": 160,
-  "workbench.startupEditor": "none",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
   "[python]": {
     "editor.defaultFormatter": "ms-python.python"
   },
+  "cmake.configureOnOpen": true,
   "dart.debugExternalPackageLibraries": false,
   "dart.debugSdkLibraries": false,
   "dart.lineLength": 120,
-  "vim.textwidth": 160,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": true,
+  "editor.smoothScrolling": true,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 160,
+  "files.exclude": {
+    "**/.dart_tool": true,
+    "**/.next": true,
+    "**/.out": true,
+    "**/.pnp": true,
+    "**/.symlinks": true,
+    "**/build": true,
+    "**/node_modules": true,
+    "**/out": true,
+    "**/Pods": true,
+    "**/venv": true,
+    "**/.git": true,
+    "**/bower_components": true,
+    "**/tmp": true,
+    "**/.venv": true
+  },
+  "git.autofetch": true,
+  "git.confirmSync": false,
   "html.format.wrapLineLength": 169,
   "python.formatting.autopep8Args": [
     "[\"--max-line-length\", \"120\", \"--experimental\"]"
   ],
+  "redhat.telemetry.enabled": false,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    ".build/**": true,
+    "out*/**": true,
+    "i18n/**": true,
+    "extensions/**/out/**": true,
+    "*.pyc": true,
+    "*.min.js": true,
+    "**/.git": true,
+    "**/tmp": true
+  },
   "search.useGlobalIgnoreFiles": true,
   "search.useParentIgnoreFiles": true,
-  "cmake.configureOnOpen": true
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "vim.textwidth": 160,
+  "vsicons.dontShowNewVersionMessage": true,
+  "workbench.enableExperiments": false,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.startupEditor": "none",
+  "workbench.tips.enabled": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "explorer.confirmDragAndDrop": false,
+  "vs-kubernetes": {
+    "vscode-kubernetes.minikube-path.mac": "/Users/manojbajaj/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
+    "vscode-kubernetes.helm-path.mac": "/Users/manojbajaj/.vs-kubernetes/tools/helm/darwin-arm64/helm"
+  },
+  "vim.neovimPath": "/opt/homebrew/bin/nvim",
+  "vim.enableNeovim": true,
+  "vim.neovimConfigPath": "~/.config/nvim/init.vim ",
+  "vim.useSystemClipboard": true,
+  "editor.inlineSuggest.enabled": true,
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "go.alternateTools": {
+    "go": "/opt/homebrew/bin/go"
+  },
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "extensions.ignoreRecommendations": true
 }
