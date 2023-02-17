@@ -27,6 +27,8 @@ Please refer to instructions in the README if you want to replicate and tweak ac
 The dotfiles are stored in a git bare repository. There is no need to maintain symlinks, copy/paste, or complicated dotfile manager.
 To replicate the setup, use the following commands:
 
+remove any files that are creating conflic
+
 ```bash
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 git clone --bare https://github.com/manojbajaj95/config.git $HOME/.cfg
@@ -45,7 +47,11 @@ Update your system to latest OS, then head over to App Store and install xcode.
 Once completed, execute the following script:
 ```bash
 ~/Scripts/mac-first-time.sh
+~/Scripts/mac/install-fonts.sh
+brew bundle --file=~/Scripts/mac/Brewfile
 ```
+
+
 ### For Arch:
 TODO:
 
@@ -53,23 +59,38 @@ TODO:
 TODO:
 
 ## Installing Pre-requisites/important Cli
-TODO:
+Optional
+```bash
+brew bundle --file=~/Scripts/mac/Brewfile
+```
 
 
 ## Alacritty - terminal
-TODO:
+Execute
+```bash
+brew install --cask alacritty
+```
 
 ## Zsh - bash replacement
 Execute:
-```bash 
-~/Scripts/zsh-setup.sh
+```bash
+mv ~/.zshrc ~/.zshrc.old
+~/Scripts/setup/zsh-setup.sh
 ```
 
 ## Vim -
 Execute:
+```bash
+rm -rf ~/.vim*
+~/Scripts/setup/vim-setup.sh
+```
 
 ## Tmux 
 Execute:
+```bash
+rm -rf ~/.tmux*
+~/Scripts/setup/tmux-setup.sh
+```
 
 ## Visual Studio Code
 Execute:
@@ -80,12 +101,16 @@ Execute:
 # Environment setup
 
 ## CPlusPlus
+Check ~/.end.d/cpp.env
 
 ## Golang
+Check ~/.end.d/go.env
 
 ## JavaScript/TypeScript
 
 ## Rust
+Check ~/.end.d/rust.env
 
 ## Python
+Check ~/.end.d/python.env
 
