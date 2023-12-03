@@ -27,10 +27,15 @@ if [ "$1" == "backup" ];then
   mv ~/Library/Application\ Support/Code/User/snippets/ ~/.vscode/
   code --list-extensions > ~/.vscode/code-extensions.lst
 elif [ "$1" == "restore" ];then
-  # code --install-extension $extension
-  ln -s $HOME/.vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
-  ln -s $HOME/.vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
-  ln -s $HOME/.vscode/snippets/ $HOME/Library/Application\ Support/Code/User
+  while read p; do                                                                                                                                                         ─╯
+    code --install-extension $p
+  done <code-extensions.lst
+  ln -s $HOME/.vscode/settings.json $HOME/.config/Code/User/settings.json
+  ln -s $HOME/.vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
+  ln -s $HOME/.vscode/snippets/ $HOME/.config/Code/User
+  #ln -s $HOME/.vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+  #ln -s $HOME/.vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+  #ln -s $HOME/.vscode/snippets/ $HOME/Library/Application\ Support/Code/User
 else
   echo "Incorrect parameter"
 fi

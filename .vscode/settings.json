@@ -92,5 +92,10 @@
     "go": "/opt/homebrew/bin/go"
   },
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "extensions.ignoreRecommendations": true
+  "extensions.ignoreRecommendations": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "vim.useCtrlKeys": false,
+  "explorer.confirmDelete": false
 }

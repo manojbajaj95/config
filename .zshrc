@@ -165,6 +165,3 @@ if [[ -d "$HOME/.env.d" ]] ; then
 fi
 # export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
-
-
-

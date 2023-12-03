@@ -1,3 +1,4 @@
+build-essential
 zsh
 ack
 tree
@@ -6,3 +7,9 @@ vim
 wget
 curl
 htop
+git
+exa
+fd
+fzf
+pandoc
+markdown
