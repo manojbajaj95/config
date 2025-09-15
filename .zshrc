@@ -153,15 +153,18 @@ if [[ -d "$HOME/.env.d" ]] ; then
   # for f in $HOME/.env.d/*.env; do
     # source "$f"
   # done
-  source "$HOME/.env.d/go.env"
-  source "$HOME/.env.d/java.env"
+  # source "$HOME/.env.d/go.env"
+  # source "$HOME/.env.d/java.env"
   source "$HOME/.env.d/python.env"
   source "$HOME/.env.d/node.env"
-  source "$HOME/.env.d/gcloud.env"
-  source "$HOME/.env.d/rust.env"
+  # source "$HOME/.env.d/gcloud.env"
+  # source "$HOME/.env.d/rust.env"
   # source "$HOME/.env.d/cpp.env"
   # source "$HOME/.env.d/flutter.env"
   # source "$HOME/.env.d/emacs.env"
 fi
 # export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+
+. "$HOME/.local/bin/env"
 
