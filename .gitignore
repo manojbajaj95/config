@@ -61,3 +61,5 @@ node_modules/
 
 # Important to ignore custom alias
 .caliases
+.omc
+.claude
