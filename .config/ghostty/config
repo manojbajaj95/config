@@ -1,0 +1,12 @@
+# Ghostty defaults for the macOS work setup.
+# Docs: https://ghostty.org/docs/features/theme
+
+theme = Tokyo Night Storm
+font-family = JetBrainsMono Nerd Font
+font-size = 14
+window-padding-x = 10
+window-padding-y = 8
+macos-option-as-alt = true
+shell-integration = zsh
+copy-on-select = clipboard
+confirm-close-surface = false

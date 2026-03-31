@@ -4,30 +4,36 @@
                                   | |     | |  / _(_) |
                                 __| | ___ | |_| |_ _| | ___  ___
                                / _` |/ _ \| __|  _| | |/ _ \/ __|
-                              | (_| | (_) | |_| | | | |  __/\__ \
+                              | (_| | (_) | |_| | | | | |  __/\__ \
                                \__,_|\___/ \__|_| |_|_|\___||___/
                                 --------------------------------
                            swiss army knife of any software engineer
                          ----------------------------------------------
-
-             -----------------------------------------------------------------------
-             This repository is the collection of configurations that I learned over
-             time and tweaked for my personal taste. The repository contains configs
-             files for vim, tmux, etc etc.  The reposiotry also contains scripts for
-             automating the setup of your development machine.
-             -----------------------------------------------------------------------
-    
 '
 ```
 
-Please refer to instructions in the README if you want to replicate and tweak accordingly.
+This repository contains personal dotfiles plus helper scripts for Linux and macOS.
 
-## Storing and Re-storing dotfiles
+## Scope
 
-The dotfiles are stored in a git bare repository. There is no need to maintain symlinks, copy/paste, or complicated dotfile manager.
-To replicate the setup, use the following commands:
+The current macOS path is optimized for a work machine with:
 
-remove any files that are creating conflic
+- Ghostty
+- zsh + Oh My Zsh + Powerlevel10k
+- Chrome
+- Raycast
+- Cursor installed manually
+- Wispr Flow installed manually
+- Python via `uv`
+- Node via `fnm`
+- `pnpm` instead of npm where practical
+- GitHub CLI and SSH keys
+
+Linux configs remain in the repo and are not part of the macOS bootstrap flow.
+
+## Dotfiles storage
+
+The dotfiles are stored in a git bare repository:
 
 ```bash
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -36,88 +42,75 @@ config config --local status.showUntrackedFiles no
 config checkout
 ```
 
-You'll need to resolve conflicts if you already have any custom dotfiles.
+Resolve conflicts before checking out over any existing files.
 
-Refer to [The best way to store your dotfiles: A bare Git repository](https://www.atlassian.com/git/tutorials/dotfiles)
+Reference: [The best way to store your dotfiles: A bare Git repository](https://www.atlassian.com/git/tutorials/dotfiles)
 
-## Initial Setup
+## macOS setup
 
-### For Mac
-Update your system to latest OS, then head over to App Store and install xcode.
-Once completed, execute the following script:
+Install Xcode Command Line Tools first:
+
 ```bash
-~/Scripts/mac-first-time.sh
-~/Scripts/mac/install-fonts.sh
-brew bundle --file=~/Scripts/mac/Brewfile
+xcode-select --install
 ```
 
+Then run:
 
-### For Arch:
-TODO:
-
-### For ubuntu:
-TODO:
-
-## Installing Pre-requisites/important Cli
-Optional
 ```bash
-brew bundle --file=~/Scripts/mac/Brewfile
+./scripts/mac/01-install-xcode-cli-tools.sh
+./scripts/mac/02-setup-homebrew.sh
+./scripts/mac/03-install-brew-packages.sh
+./scripts/mac/04-setup-shell-and-terminal.sh
+./scripts/mac/05-setup-tmux.sh
+./scripts/mac/06-install-fonts.sh
+./scripts/mac/07-bootstrap-node.sh
+./scripts/mac/08-bootstrap-python.sh
+./scripts/mac/09-setup-github-auth.sh
+./scripts/mac/10-start-colima.sh
+./scripts/mac/11-backup-existing-dotfiles.sh
 ```
 
+The numbered macOS flow is documented in [scripts/mac/README.md](/Users/ankitaagarwal/Documents/Playground/manoj-config/scripts/mac/README.md). Manual installs and account-specific steps are documented in [scripts/mac/MANUAL_SETUP.md](/Users/ankitaagarwal/Documents/Playground/manoj-config/scripts/mac/MANUAL_SETUP.md).
 
-## Alacritty - terminal
-Execute
+As the final step, restore the dotfiles with the bare repository flow:
+
 ```bash
-brew install --cask alacritty
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+git clone --bare https://github.com/manojbajaj95/config.git $HOME/.cfg
+config config --local status.showUntrackedFiles no
+config checkout
 ```
 
-## Zsh - bash replacement
-Execute:
+The backup script above moves common conflicting files into `~/.dotfile-backups/<timestamp>/` before `config checkout`.
+
+## Environment setup
+
+### Python
+
+Check `~/.env.d/python.env`
+
 ```bash
-mv ~/.zshrc ~/.zshrc.old
-~/Scripts/setup/zsh-setup.sh
+create_venv
+venv
 ```
 
-## Vim -
-Execute:
+### JavaScript / TypeScript
+
+Check `~/.env.d/node.env`
+
 ```bash
-rm -rf ~/.vim*
-~/Scripts/setup/vim-setup.sh
+fnm install --lts
+fnm default lts-latest
+pnpm setup
 ```
 
-## Tmux 
-Execute:
-```bash
-rm -rf ~/.tmux*
-~/Scripts/setup/tmux-setup.sh
-```
+### Go
 
-## Visual Studio Code
-Execute:
-```bash
-~/Scriptsvscode-setup.sh restore
-```
+Check `~/.env.d/go.env` if needed.
 
-# Environment setup
+## Notes
 
-## CPlusPlus
-Check ~/.end.d/cpp.env
-
-## Golang
-Check ~/.end.d/go.env
-
-## JavaScript/TypeScript
-Check ~/.end.d/go.env
-```bash
-load_node
-```
-
-## Rust
-Check ~/.end.d/rust.env
-```
-load_rust
-```
-
-## Python
-Check ~/.end.d/python.env
-
+- `SpaceVim` is no longer part of the setup flow.
+- `yabai` and `skhd` are intentionally not installed on macOS.
+- VS Code restore is no longer part of the default setup flow.
+- No Ollama or local-model tooling is included.

@@ -134,6 +134,7 @@ export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # More paths for user binaries
 export PATH=$PATH:$HOME/bin
+export PATH="$HOME/.npm-global/bin:$PATH"
 
 # Aliases
 if [[ -s "$HOME/.aliases" ]]; then
@@ -154,27 +155,13 @@ if [[ -d "$HOME/.env.d" ]] ; then
   # for f in $HOME/.env.d/*.env; do
     # source "$f"
   # done
-  source "$HOME/.env.d/go.env"
-  # source "$HOME/.env.d/java.env"  # Disabled - not needed
-  source "$HOME/.env.d/python.env"
-  source "$HOME/.env.d/node.env"
-  source "$HOME/.env.d/gcloud.env"
-  # source "$HOME/.env.d/rust.env"  # Disabled - not needed
-  # source "$HOME/.env.d/cpp.env"
-  # source "$HOME/.env.d/flutter.env"
-  # source "$HOME/.env.d/emacs.env"
+  [[ -f "$HOME/.env.d/go.env" ]] && source "$HOME/.env.d/go.env"
+  [[ -f "$HOME/.env.d/python.env" ]] && source "$HOME/.env.d/python.env"
+  [[ -f "$HOME/.env.d/node.env" ]] && source "$HOME/.env.d/node.env"
+  [[ -f "$HOME/.env.d/gcloud.env" ]] && source "$HOME/.env.d/gcloud.env"
 fi
 # export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
-
-. "$HOME/.local/bin/env"
-
-export PATH="$HOME/.npm-global/bin:$PATH"
-
-# pnpm
-export PNPM_HOME="/home/mbajaj/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+if [[ -f "$HOME/.local/bin/env" ]]; then
+  . "$HOME/.local/bin/env"
+fi
