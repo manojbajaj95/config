@@ -151,14 +151,10 @@ fi
 
 # Environments
 if [[ -d "$HOME/.env.d" ]] ; then
-  # If you want to source all files
-  # for f in $HOME/.env.d/*.env; do
-    # source "$f"
-  # done
+  # Keep the default shell focused on the active local toolchains.
   [[ -f "$HOME/.env.d/go.env" ]] && source "$HOME/.env.d/go.env"
   [[ -f "$HOME/.env.d/python.env" ]] && source "$HOME/.env.d/python.env"
   [[ -f "$HOME/.env.d/node.env" ]] && source "$HOME/.env.d/node.env"
-  [[ -f "$HOME/.env.d/gcloud.env" ]] && source "$HOME/.env.d/gcloud.env"
 fi
 # export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
