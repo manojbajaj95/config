@@ -1,6 +1,0 @@
-[Desktop Entry]
-Exec=/usr/bin/setxkbmap -option caps:escape
-Name=swapesc
-Comment=Swap caps lock with escape
-Type=Application
-X-GNOME-Autostart-enabled=false

@@ -2,6 +2,12 @@
 
 This document covers the parts of the work-machine setup that are intentionally manual or account-specific.
 
+You can also print the same checklist with:
+
+```bash
+./scripts/mac/12-manual-tool-installs.sh
+```
+
 ## Already handled by Brew
 
 The macOS Brewfile installs:

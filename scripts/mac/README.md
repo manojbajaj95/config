@@ -13,7 +13,8 @@ Run these manually, in order, as needed:
 9. `./scripts/mac/09-setup-github-auth.sh`
 10. `./scripts/mac/10-start-colima.sh`
 11. `./scripts/mac/11-backup-existing-dotfiles.sh`
-12. Restore dotfiles as the final step:
+12. `./scripts/mac/12-manual-tool-installs.sh`
+13. Restore dotfiles as the final step:
 
 ```bash
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

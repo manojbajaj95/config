@@ -68,6 +68,7 @@ Then run:
 ./scripts/mac/09-setup-github-auth.sh
 ./scripts/mac/10-start-colima.sh
 ./scripts/mac/11-backup-existing-dotfiles.sh
+./scripts/mac/12-manual-tool-installs.sh
 ```
 
 The numbered macOS flow is documented in [scripts/mac/README.md](/Users/ankitaagarwal/Documents/Playground/manoj-config/scripts/mac/README.md). Manual installs and account-specific steps are documented in [scripts/mac/MANUAL_SETUP.md](/Users/ankitaagarwal/Documents/Playground/manoj-config/scripts/mac/MANUAL_SETUP.md).
