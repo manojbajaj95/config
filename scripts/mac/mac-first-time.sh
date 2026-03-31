@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # macOS First-Time Setup Script
-# Purpose: Initial system setup with Homebrew and essential packages
+# Purpose: Initial macOS setup with Homebrew and essential packages
 #
 # Usage: ./mac-first-time.sh
 #
@@ -73,6 +73,22 @@ check_brewfile() {
         error_exit "Brewfile not found: $BREWFILE"
     fi
     log_info "Found Brewfile: $BREWFILE"
+}
+
+ensure_brew_shellenv() {
+    local brew_shellenv_line
+
+    if [ "$(uname -m)" = "arm64" ]; then
+        brew_shellenv_line='eval "$(/opt/homebrew/bin/brew shellenv)"'
+    else
+        brew_shellenv_line='eval "$(/usr/local/bin/brew shellenv)"'
+    fi
+
+    touch "$HOME/.zprofile"
+    if ! grep -Fq "$brew_shellenv_line" "$HOME/.zprofile"; then
+        printf '\n%s\n' "$brew_shellenv_line" >> "$HOME/.zprofile"
+        log "Added Homebrew shell environment to ~/.zprofile"
+    fi
 }
 
 # Create backup directory
@@ -161,6 +177,7 @@ install_homebrew() {
         log_info "Homebrew version: $(brew --version | head -1)"
 
         # Update Homebrew
+        ensure_brew_shellenv
         log "Updating Homebrew..."
         brew update || log_warning "Homebrew update encountered issues"
         return 0
@@ -191,6 +208,7 @@ install_homebrew() {
         fi
     fi
 
+    ensure_brew_shellenv
     log "Homebrew installed successfully: $(brew --version | head -1)"
 }
 
@@ -259,6 +277,9 @@ show_summary() {
 
     echo ""
     log "Log file saved to: $LOG_FILE"
+    log_info "Manual follow-up steps:"
+    echo "  See: $SCRIPT_DIR/MANUAL_SETUP.md"
+    echo "  This includes Cursor, Wispr Flow, SSH key setup, Codex CLI, and Claude Code."
     echo ""
 }
 
@@ -280,18 +301,20 @@ show_recommendations() {
         echo "   eval \"\$(/usr/local/bin/brew shellenv)\""
     fi
     echo ""
-    echo "3. Configure installed tools (zsh, vim, tmux, etc.):"
+    echo "3. Configure installed tools (zsh and tmux):"
     echo "   ~/scripts/setup/zsh-setup.sh"
-    echo "   ~/scripts/setup/vim-setup.sh"
     echo "   ~/scripts/setup/tmux-setup.sh"
     echo ""
     echo "4. Install fonts (if needed):"
     echo "   ~/scripts/mac/install-fonts.sh"
     echo ""
-    echo "5. Keep your system updated regularly:"
+    echo "5. Review manual setup steps:"
+    echo "   less $SCRIPT_DIR/MANUAL_SETUP.md"
+    echo ""
+    echo "6. Keep your system updated regularly:"
     echo "   brew update && brew upgrade && brew cleanup"
     echo ""
-    echo "6. Restart your terminal to ensure PATH changes take effect"
+    echo "7. Restart your terminal to ensure PATH changes take effect"
     echo ""
 }
 

@@ -134,6 +134,7 @@ export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # More paths for user binaries
 export PATH=$PATH:$HOME/bin
+export PATH="$HOME/.npm-global/bin:$PATH"
 
 # Aliases
 if [[ -s "$HOME/.aliases" ]]; then
@@ -150,25 +151,12 @@ fi
 
 # Environments
 if [[ -d "$HOME/.env.d" ]] ; then
-  # If you want to source all files
-  # for f in $HOME/.env.d/*.env; do
-    # source "$f"
-  # done
-<<<<<<< HEAD
-  # source "$HOME/.env.d/go.env"
-  # source "$HOME/.env.d/java.env"
-  source "$HOME/.env.d/python.env"
-  source "$HOME/.env.d/node.env"
-  # source "$HOME/.env.d/gcloud.env"
-  # source "$HOME/.env.d/rust.env"
-=======
   source "$HOME/.env.d/go.env"
   # source "$HOME/.env.d/java.env"  # Disabled - not needed
   source "$HOME/.env.d/python.env"
   source "$HOME/.env.d/node.env"
   source "$HOME/.env.d/gcloud.env"
   # source "$HOME/.env.d/rust.env"  # Disabled - not needed
->>>>>>> 10999e0df43020b499e5167ffcb4805a60d6954c
   # source "$HOME/.env.d/cpp.env"
   # source "$HOME/.env.d/flutter.env"
   # source "$HOME/.env.d/emacs.env"
@@ -178,11 +166,6 @@ fi
 
 . "$HOME/.local/bin/env"
 
-export PATH="$HOME/.npm-global/bin:$PATH"
-
-# pnpm
-export PNPM_HOME="/home/mbajaj/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+if [[ -f "$HOME/.local/bin/env" ]]; then
+  . "$HOME/.local/bin/env"
+fi

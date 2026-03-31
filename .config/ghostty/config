@@ -1,0 +1,14 @@
+# Ghostty defaults for the macOS work setup.
+# Based on the swyx setup direction: Ghostty + keyboard-friendly config
+# with an explicit Nerd Font family from this repo's bundled fonts.
+
+theme = Tokyo Night Storm
+font-family = "JetBrains Mono Nerd Font"
+font-size = 14
+window-padding-x = 10
+window-padding-y = 8
+macos-option-as-alt = true
+shell-integration = zsh
+copy-on-select = clipboard
+confirm-close-surface = false
+window-theme = dark
